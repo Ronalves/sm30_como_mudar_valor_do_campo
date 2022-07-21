@@ -1,0 +1,13 @@
+FORM zadd_key_02.
+
+  CONSTANTS:c_zeros(32) TYPE c VALUE '00000000000000000000000000000000'.
+
+  IF ztbfic255-zkey = c_zeros.
+    ztbfic255-zkey = /bobf/cl_frw_factory=>get_new_key( ).
+  ENDIF.
+
+  ztbfic255-usuario = sy-uname.
+  CONCATENATE sy-datum+6(2) sy-datum+4(2) sy-datum(4)
+         INTO ztbfic255-dt_proc SEPARATED BY '.'.
+
+ENDFORM.                    " ZADD_KEY_02
